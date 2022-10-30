@@ -6,9 +6,11 @@ import TodoList from "./components/TodoList"
 function App() {
     return (
         <div className="App">
-            <TodoInputForm />
-            <TodoList />
-            <Filters />
+            <div className="container">
+                <TodoInputForm />
+                <Filters />
+                <TodoList />      
+            </div> 
         </div>
     )
 }

@@ -1,86 +1,66 @@
+.App {
+    display: flex;
+    justify-content: center;
+}
+
 .container {
     width: 1200px;
-    margin: 30px auto;
+    margin: 30px; 
 }
 
-.form__inner {
-    display: flex;
-    margin-top: 5px;
-    align-items: center;
-    width: 100%;
-}
-
-.form__inner_first {
+.form {
     display: flex;
     align-items: center;
-    width: 15%;
+    justify-content: center;
 }
 
-.form__inner_second {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 85%;
-}
+.form__input {
+    display: block;
+    width: 460px;
+    height: 40px;
+    padding: 0.375rem 0.75rem;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
 
-.form__inner_text {
-    font-size: 17px;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+
     margin-right: 10px;
 }
 
-.form__names {
-    margin: 0 20px 0 0;
+.form__input::placeholder {
+    color: #212529;
+    opacity: 0.4;
 }
 
-.button {
-    width: 130px;
-    height: 27px;
 
-    border-radius: 5px;
-    border: none;
+.form__button {
+    background-color: #c6bdbd;
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    border-radius: 4px;
+    color: #555555;
 
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    background-color: rgb(85, 119, 255);
-    transition: background-color .1s linear;
+    width: 100px;
+    height: 40px;
 
-    &:hover {
-        background-color: rgb(57, 96, 255);
-    }
-
-    &:disabled  {
-        background-color: rgb(174, 190, 255);
-    }
+    font-size: 18px;
+    font-family: inherit;
+    text-align: center;
+    line-height: 20px;
 }
 
-.button.margin {
-    margin: 10px 0;
+.form__button:hover {
+    border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+    outline: 0 none;
 }
 
-.form__inner_photo {
-    cursor: pointer;
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    left: 458px;
-}
 
-.form__inner_notebook {
-    cursor: pointer;
-    position: absolute;
-    width: 28px;
-    height: 28px;
-    right: 12px;
-}
-
-.form__submit {
-    display: flex;
-    align-items: center;
-}
-
-.form__submit_text {
-    font-size: 15px;
-    margin-left: 10px;
-}
 
