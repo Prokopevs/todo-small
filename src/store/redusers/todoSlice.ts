@@ -40,32 +40,48 @@ export const getData = () => async (dispatch: AppDispatch) => {
     try {
         const response = await getList()
         dispatch(setList(response.data))
-    } catch (e) {
-        console.log("error")
+    } catch (error) {
+        let errorMessage = "Error"
+        if (error instanceof Error) {
+            errorMessage = error.message
+        }
+        console.log(errorMessage)
     }
 }
 
 export const fetchChangeCompleted = (data: IList) => async (dispatch: AppDispatch) => {
     try {
         const response = await putList(data)
-    } catch (e) {
-        console.log("error")
+    } catch (error) {
+        let errorMessage = "Error"
+        if (error instanceof Error) {
+            errorMessage = error.message
+        }
+        console.log(errorMessage)
     }
 }
 
 export const fetchDeleteItem = (id: string) => async (dispatch: AppDispatch) => {
     try {
         const response = await deleteList(id)
-    } catch (e) {
-        console.log("error")
+    } catch (error) {
+        let errorMessage = "Error"
+        if (error instanceof Error) {
+            errorMessage = error.message
+        }
+        console.log(errorMessage)
     }
 }
 
 export const fetchPostItem = (data: IList) => async (dispatch: AppDispatch) => {
     try {
         const response = await postList(data)
-    } catch (e) {
-        console.log("error")
+    } catch (error) {
+        let errorMessage = "Error"
+        if (error instanceof Error) {
+            errorMessage = error.message
+        }
+        console.log(errorMessage)
     }
 }
 
