@@ -1,37 +1,48 @@
 import React from "react"
 import { useAppDispatch } from "../hooks"
 import { IList } from "../models/IList"
-import { removeTodo, toggleComplete } from "../store/redusers/todoSlice"
+import { fetchDeleteItem, fetchChangeCompleted, removeTodo, toggleComplete } from "../store/redusers/todoSlice"
 import { close } from "../pictures"
 
 const TodoItem: React.FC<IList> = ({ id, text, completed }) => {
     const dispatch = useAppDispatch()
+    const handleComplete = () => {
+        const data = {
+            text: text,
+            completed: !completed,
+            id: id,
+        }
+        dispatch(fetchChangeCompleted(data))
+        dispatch(toggleComplete(id))
+    }
+
+    const handleDelete = () => {
+        dispatch(fetchDeleteItem(id))
+        dispatch(removeTodo(id))
+    }
 
     return (
         <div className="todo__item">
-            {/* <input
-                type="checkbox"
-                className="todo__item_input"
-                checked={completed}
-                onChange={() => dispatch(toggleComplete(id))}
-            /> */}
-
-            {/* <div>
-                <input type="checkbox" id="check1" />
-                <label htmlFor="check1">
+            <div>
+                <input
+                    type="checkbox"
+                    checked={completed}
+                    id={id}
+                    onChange={() => handleComplete()}
+                />
+                <label htmlFor={id}>
                     <div>
                         <i className="fa fa-check"></i>
-                    </div>{" "}
-                    I like Codepen!
+                    </div>
                 </label>
-            </div> */}
+            </div>
 
-            <p className="todo__item_text">{text}</p>
+            <p className={completed ? "todo__item_text completed" : "todo__item_text"}>{text}</p>
 
             <img
                 className="todo__item_img"
                 src={String(close)}
-                onClick={() => dispatch(removeTodo(id))}
+                onClick={() => handleDelete()}
             ></img>
         </div>
     )

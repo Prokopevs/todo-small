@@ -1,3 +1,4 @@
 const close = require("../assets/img/close.png")
+const pumpkin = require("../assets/img/pumpkin.png")
 
-export {close}
+export {close, pumpkin}

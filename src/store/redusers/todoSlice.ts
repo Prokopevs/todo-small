@@ -1,5 +1,10 @@
+import { getList } from '../../http/getList';
+import { AppDispatch } from './../index';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IList } from '../../models/IList';
+import { putList } from '../../http/putList';
+import { deleteList } from '../../http/deleteList';
+import { postList } from '../../http/postList';
 
 interface FilterState {
     list: IList[]
@@ -13,12 +18,8 @@ export const todoSlice = createSlice({
   name: 'todo',
   initialState,
   reducers: {
-    addTodo(state, action: PayloadAction<string>) {
-        state.list.push({
-            text: action.payload,
-            id: new Date().toISOString(),
-            completed: false,
-        });
+    addTodo(state, action: PayloadAction<IList>) {
+        state.list.push(action.payload);
     },
     toggleComplete(state, action: PayloadAction<string>) {
         const toggledTodo = state.list.find(todo => todo.id === action.payload)
@@ -28,10 +29,46 @@ export const todoSlice = createSlice({
     },
     removeTodo(state, action: PayloadAction<string>) {
         state.list = state.list.filter(todo => todo.id !== action.payload);
+    },
+    setList(state, action: PayloadAction<IList[]>) {
+        state.list = action.payload
     }
   },
 })
 
-export const { addTodo, toggleComplete, removeTodo } = todoSlice.actions
+export const getData = () => async (dispatch: AppDispatch) => {
+    try {
+        const response = await getList()
+        dispatch(setList(response.data))
+    } catch (e) {
+        console.log("error")
+    }
+}
+
+export const fetchChangeCompleted = (data: IList) => async (dispatch: AppDispatch) => {
+    try {
+        const response = await putList(data)
+    } catch (e) {
+        console.log("error")
+    }
+}
+
+export const fetchDeleteItem = (id: string) => async (dispatch: AppDispatch) => {
+    try {
+        const response = await deleteList(id)
+    } catch (e) {
+        console.log("error")
+    }
+}
+
+export const fetchPostItem = (data: IList) => async (dispatch: AppDispatch) => {
+    try {
+        const response = await postList(data)
+    } catch (e) {
+        console.log("error")
+    }
+}
+
+export const { addTodo, toggleComplete, removeTodo, setList } = todoSlice.actions
 
 export default todoSlice.reducer

@@ -14,6 +14,24 @@
     justify-content: center;
 }
 
+.form__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.todo__header_img {
+    width: 55px;
+    height: 55px;
+    margin-left: 20px;
+}
+
+.form__header_text {
+    text-align: center;
+    font-size: 45px;
+}
+
 .form__input {
     display: block;
     width: 460px;
@@ -34,13 +52,13 @@
 }
 
 .form__input::placeholder {
-    color: #212529;
+    color: #a85101;
     opacity: 0.4;
 }
 
 
 .form__button {
-    background-color: #c6bdbd;
+    background-color: #fa8a02;
     border: 1px solid #CCCCCC;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
     transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;

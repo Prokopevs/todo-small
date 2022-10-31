@@ -9,86 +9,47 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 4px 0;
+    margin: 8px 0;
 }
 
 .todo__item_img {
     width: 15px;
     margin-top: 7px;
     height: 15px;
+    cursor: pointer;
 }
 
 .todo__item_text {
     font-size: 27px;
-    margin: 0 30px;
-    color:darkseagreen;
+    margin: 0 30px 0 15px;
+    color:#f79012;
     font-family: 'Gloria Hallelujah', cursive;
+}
+
+.todo__item_text.completed {
+    text-decoration: line-through;
+    text-decoration-color: #ff7518;
 }
 
 .todo__item_input {
     display: none;
-
-    &:checked {
-		& + .check {
-			svg {
-				stroke: #4285f4;
-				path {
-					stroke-dashoffset: 60;
-					transition: all 0.3s linear;
-				}
-				polyline {
-					stroke-dashoffset: 42;
-					transition: all 0.2s linear;
-					transition-delay: 0.15s;
-				}
-			}
-		}
-	}
 }
 
-.check {
-	cursor: pointer;
-	position: relative;
-	margin: auto;
-	width: 18px;
-	height: 18px;
-	-webkit-tap-highlight-color: transparent;
-	transform: translate3d(0, 0, 0);
-	&:before {
-		content: "";
-		position: absolute;
-		top: -15px;
-		left: -15px;
-		width: 48px;
-		height: 48px;
-		border-radius: 50%;
-		background: rgba(34,50,84,0.03);
-		opacity: 0;
-		transition: opacity 0.2s ease;
-	}
-	svg {
-		position: relative;
-		z-index: 1;
-		fill: none;
-		stroke-linecap: round;
-		stroke-linejoin: round;
-		stroke: #c8ccd4;
-		stroke-width: 1.5;
-		transform: translate3d(0, 0, 0);
-		transition: all 0.2s ease;
-        margin-top: 3px;
-		path {
-			stroke-dasharray: 60;
-			stroke-dashoffset: 0;
-		}
-		polyline {
-			stroke-dasharray: 22;
-			stroke-dashoffset: 66;
-		}
-	}
-	&:hover {
-		svg {
-			stroke: #4285f4;
-		}
-	}
+input{ display:none; }
+
+label div{
+	width:23px;
+	height:23px;
+	display:inline-block;
+	border:2px solid #fff;
+	text-align:center;
+	line-height:20px;
+	margin-right:6px;	
+	border-radius:3px;
+	cursor:pointer;	
 }
+
+label i{ font-size:16px;	opacity:0; }
+input:checked+label i{ opacity:1; }
+input:checked+label div{ background:#ff7518; }
+
