@@ -1,4 +1,4 @@
-import filterSlice, { changeFilter } from "../redusers/filterSlice";
+import filterSlice, { changeFilter } from "../redusers/filterSlice"
 
 
 const initialState = {
@@ -10,7 +10,7 @@ describe("filterSlice", () => {
       const result = filterSlice(undefined, { type: ""})
   
       expect(result).toEqual(initialState)
-    });
+    })
 
     it('should change category with changeFilter action', () => {
         const State = {
@@ -22,6 +22,5 @@ describe("filterSlice", () => {
         const result = filterSlice(State, action)
     
         expect(result.category).toEqual("Active")
-      });
-
+    })
 })
