@@ -1,7 +1,12 @@
 import React from "react"
 import { useAppDispatch } from "../hooks"
 import { IList } from "../models/IList"
-import { fetchDeleteItem, fetchChangeCompleted, removeTodo, toggleComplete } from "../store/redusers/todoSlice"
+import {
+    fetchDeleteItem,
+    fetchChangeCompleted,
+    removeTodo,
+    toggleComplete,
+} from "../store/redusers/todoSlice"
 import { close } from "../pictures"
 
 const TodoItem: React.FC<IList> = ({ id, text, completed }) => {
@@ -37,7 +42,9 @@ const TodoItem: React.FC<IList> = ({ id, text, completed }) => {
                 </label>
             </div>
 
-            <p className={completed ? "todo__item_text completed" : "todo__item_text"}>{text}</p>
+            <p className={completed ? "todo__item_text completed" : "todo__item_text"}>
+                {text}
+            </p>
 
             <img
                 className="todo__item_img"

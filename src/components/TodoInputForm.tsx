@@ -3,7 +3,6 @@ import { useAppDispatch } from "../hooks"
 import { addTodo, fetchPostItem } from "../store/redusers/todoSlice"
 import { pumpkin } from "../pictures"
 
-
 const TodoInputForm: React.FC = () => {
     const [text, setText] = React.useState("")
     const dispatch = useAppDispatch()
